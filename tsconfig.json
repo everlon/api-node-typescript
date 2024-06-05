@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
+    "target": "es2016",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
     "module": "commonjs",
-    "outDir": "./build",
     "rootDir": "./src",
-    "esModuleInterop": true
+    "outDir": "./build",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
   }
 }
