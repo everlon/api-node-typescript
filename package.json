@@ -4,12 +4,15 @@
   "description": "Curso básico de Node-TypeScript",
   "main": "main.ts",
   "scripts": {
+    "start": "ts-node-dev ./src/main.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Everlon Passos",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "http-status-codes": "^2.3.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
