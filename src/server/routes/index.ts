@@ -1,6 +1,9 @@
 import { Router } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
+import { MarcasController } from '../controllers/marcas';
+
+
 const router = Router();
 
 
@@ -8,6 +11,12 @@ router.get('/', (_, res) => {
 		return res.send('Hello World!');
 });
 
+router.post('/marcas', MarcasController.create);
+
+
+
+
+// Testes...
 router.post('/:id', (req, res) => {
     // console.log(req.body)
 
@@ -23,6 +32,7 @@ router.post('/:id', (req, res) => {
 
     return res.status(StatusCodes.OK).json(concatenatedData);
 });
+
 
 
 export { router };
