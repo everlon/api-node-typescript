@@ -2,29 +2,30 @@ import { Request, RequestHandler, Response } from "express";
 import * as yup from 'yup';
 import { validation } from "../../shared/middlewares/Validation";
 import { StatusCodes } from "http-status-codes";
+import { IMarca } from "../../database/models";
+import { MarcasProvider } from "../../database/providers/marcas";
 
 
-interface IMarcas {
-  nome: string;
-}
-// interface IFilter {
-//   filter?: string;
-// }
+interface IBodyProps extends Omit<IMarca, 'id'> { }
 
 // Middleware
 export const createValidation = validation((getSchema) => ({
-  body: getSchema<IMarcas>(yup.object().shape({
-    nome: yup.string().required().min(3),
+  body: getSchema<IBodyProps>(yup.object().shape({
+    nome: yup.string().required().min(3).max(150),
   })),
-  // query: getSchema<IFilter>(yup.object().shape({
-  //   filter: yup.string().min(3).optional(),
-  // })),
 }));
 
 
-// Controller
-export const create = async (req: Request<{}, {}, IMarcas>, res: Response) => {
-  console.log(req.body);
+export const create = async (req: Request<{}, {}, IMarca>, res: Response) => {
+  const result = await MarcasProvider.create(req.body);
 
-  return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send('Marcas: Create!');
-}
+  if (result instanceof Error) {
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      errors: {
+        default: result.message
+      }
+    });
+  }
+
+  return res.status(StatusCodes.CREATED).json(result);
+};

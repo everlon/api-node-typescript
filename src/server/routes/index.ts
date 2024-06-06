@@ -12,7 +12,7 @@ router.get('/', (_, res) => {
 });
 
 router.get('/marcas', MarcasController.getAllValidation, MarcasController.getAll);
-router.post('/marcas', MarcasController.createValidation, MarcasController.create);
+router.post('/marca', MarcasController.createValidation, MarcasController.create);
 router.get('/marca/:id', MarcasController.getByIdValidation, MarcasController.getById);
 router.put('/marca/:id', MarcasController.updateByIdValidation, MarcasController.updateById);
 router.delete('/marca/:id', MarcasController.deleteByIdValidation, MarcasController.deleteById);

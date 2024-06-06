@@ -5,7 +5,7 @@ import { testServer } from "../jest.setup"
 describe('Marcas - Create', () => {
 
   it('Criar registro', async () => {
-    const res1 = await testServer.post('/marcas').send({
+    const res1 = await testServer.post('/marca').send({
       nome: 'BMW'
     });
 
@@ -14,7 +14,7 @@ describe('Marcas - Create', () => {
   });
 
   it('Não pode criar registro com nome muito curto', async () => {
-    const res1 = await testServer.post('/marcas').send({
+    const res1 = await testServer.post('/marca').send({
       nome: 'BM'
     });
 
