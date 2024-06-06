@@ -6,7 +6,7 @@ describe('Marcas - GetAll', () => {
 
   it('Buscar todos os registros', async () => {
 
-    const res1 = await testServer.post('/marcas').send({ nome: 'Audi' });
+    const res1 = await testServer.post('/marca').send({ nome: 'Audi' });
 
     expect(res1.statusCode).toEqual(StatusCodes.CREATED);
 

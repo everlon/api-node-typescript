@@ -4,6 +4,7 @@ import { Knex } from '../../knex';
 
 
 export const create = async (marca: Omit<IMarca, 'id'>): Promise<number | Error> => {
+
   try {
     const [result] = await Knex(ETableNames.marca).insert(marca).returning('id');
 
@@ -18,4 +19,5 @@ export const create = async (marca: Omit<IMarca, 'id'>): Promise<number | Error>
     console.log(error);
     return new Error('Erro ao cadastrar o registro');
   }
+
 };

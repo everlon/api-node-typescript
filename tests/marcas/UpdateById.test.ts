@@ -6,7 +6,7 @@ describe('Marcas - UpdateById', () => {
 
   it('Atualiza registro', async () => {
 
-    const res1 = await testServer.post('/marcas').send({ nome: 'Chevrolet' });
+    const res1 = await testServer.post('/marca').send({ nome: 'Chevrolet' });
 
     expect(res1.statusCode).toEqual(StatusCodes.CREATED);
 

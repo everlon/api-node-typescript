@@ -6,7 +6,7 @@ describe('Marcas - GetById', () => {
 
   it('Busca registro por id', async () => {
 
-    const res1 = await testServer.post('/marcas').send({ nome: 'Effa' });
+    const res1 = await testServer.post('/marca').send({ nome: 'Effa' });
 
     expect(res1.statusCode).toEqual(StatusCodes.CREATED);
 
