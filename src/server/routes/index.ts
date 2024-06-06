@@ -11,7 +11,7 @@ router.get('/', (_, res) => {
 		return res.send('Hello World!');
 });
 
-router.post('/marcas', MarcasController.createBodyValidator, MarcasController.create);
+router.post('/marcas', MarcasController.createValidation, MarcasController.create);
 
 
 
