@@ -17,3 +17,9 @@ Criar o arquivo de configuração do TS
 `npm exec tsc --init` (https://aka.ms/tsc)
 
 <!-- Tive que gerar o arquivo na mão pois não criou com --init -->
+
+
+## TESTING
+
+Executar os testes com JEST:
+`npm exec jest`
