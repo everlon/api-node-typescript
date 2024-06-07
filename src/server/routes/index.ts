@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
 import { MarcasController } from '../controllers/marcas';
+import { ModelosController } from '../controllers/modelos';
 
 
 const router = Router();
@@ -16,6 +17,13 @@ router.post('/marca', MarcasController.createValidation, MarcasController.create
 router.get('/marca/:id', MarcasController.getByIdValidation, MarcasController.getById);
 router.put('/marca/:id', MarcasController.updateByIdValidation, MarcasController.updateById);
 router.delete('/marca/:id', MarcasController.deleteByIdValidation, MarcasController.deleteById);
+
+
+router.get('/modelos', ModelosController.getAllValidation, ModelosController.getAll);
+router.post('/modelo', ModelosController.createValidation, ModelosController.create);
+router.get('/modelo/:id', ModelosController.getByIdValidation, ModelosController.getById);
+router.put('/modelo/:id', ModelosController.updateByIdValidation, ModelosController.updateById);
+router.delete('/modelo/:id', ModelosController.deleteByIdValidation, ModelosController.deleteById);
 
 
 

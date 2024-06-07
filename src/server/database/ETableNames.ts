@@ -1,3 +1,4 @@
 export enum ETableNames {
-  marca = 'marca'
+  marca = 'marca',
+  modelo = 'modelo'
 }

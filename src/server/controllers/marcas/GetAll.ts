@@ -1,7 +1,7 @@
-import { Request, RequestHandler, Response } from "express";
+import { Request, Response } from "express";
 import * as yup from 'yup';
-import { validation } from "../../shared/middlewares/Validation";
 import { StatusCodes } from "http-status-codes";
+import { validation } from "../../shared/middlewares/Validation";
 import { MarcasProvider } from "../../database/providers/marcas";
 
 

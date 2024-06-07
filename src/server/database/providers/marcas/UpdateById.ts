@@ -12,6 +12,7 @@ export const updateById = async (id: number, cidade: Omit<IMarca, 'id'>): Promis
 
     return new Error('Erro ao atualizar o registro');
   } catch (error) {
+
     console.log(error);
     return new Error('Erro ao atualizar o registro');
   }
