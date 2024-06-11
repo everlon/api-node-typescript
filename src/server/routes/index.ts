@@ -1,8 +1,7 @@
 import { Router } from 'express';
 import { StatusCodes } from 'http-status-codes';
-
-import { MarcasController } from '../controllers/marcas';
-import { ModelosController } from '../controllers/modelos';
+import { MarcasController, ModelosController, UsuariosController } from '../controllers';
+import { ensureAuthenticated } from '../shared/middlewares';
 
 
 const router = Router();
@@ -12,19 +11,22 @@ router.get('/', (_, res) => {
 		return res.send('Hello World!');
 });
 
-router.get('/marcas', MarcasController.getAllValidation, MarcasController.getAll);
-router.post('/marca', MarcasController.createValidation, MarcasController.create);
-router.get('/marca/:id', MarcasController.getByIdValidation, MarcasController.getById);
-router.put('/marca/:id', MarcasController.updateByIdValidation, MarcasController.updateById);
-router.delete('/marca/:id', MarcasController.deleteByIdValidation, MarcasController.deleteById);
+router.get('/marcas', ensureAuthenticated, MarcasController.getAllValidation, MarcasController.getAll);
+router.post('/marca', ensureAuthenticated, MarcasController.createValidation, MarcasController.create);
+router.get('/marca/:id', ensureAuthenticated, MarcasController.getByIdValidation, MarcasController.getById);
+router.put('/marca/:id', ensureAuthenticated, MarcasController.updateByIdValidation, MarcasController.updateById);
+router.delete('/marca/:id', ensureAuthenticated, MarcasController.deleteByIdValidation, MarcasController.deleteById);
 
 
-router.get('/modelos', ModelosController.getAllValidation, ModelosController.getAll);
-router.post('/modelo', ModelosController.createValidation, ModelosController.create);
-router.get('/modelo/:id', ModelosController.getByIdValidation, ModelosController.getById);
-router.put('/modelo/:id', ModelosController.updateByIdValidation, ModelosController.updateById);
-router.delete('/modelo/:id', ModelosController.deleteByIdValidation, ModelosController.deleteById);
+router.get('/modelos', ensureAuthenticated, ModelosController.getAllValidation, ModelosController.getAll);
+router.post('/modelo', ensureAuthenticated, ModelosController.createValidation, ModelosController.create);
+router.get('/modelo/:id', ensureAuthenticated, ModelosController.getByIdValidation, ModelosController.getById);
+router.put('/modelo/:id', ensureAuthenticated, ModelosController.updateByIdValidation, ModelosController.updateById);
+router.delete('/modelo/:id', ensureAuthenticated, ModelosController.deleteByIdValidation, ModelosController.deleteById);
 
+
+router.post('/acesso', UsuariosController.signInValidation, UsuariosController.signIn);
+router.post('/cadastrar', UsuariosController.signUpValidation, UsuariosController.signUp);
 
 
 // Testes...
