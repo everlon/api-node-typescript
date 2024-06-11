@@ -25,6 +25,9 @@ Criar o arquivo de configuração do TS
 Executar os testes com JEST:
 `npm exec jest`
 
+![Testes efetuados com sucesso!](tests-ok.png "Testes efetuados com sucesso!")
+
+
 
 ## MIGRATION
 
